@@ -1,0 +1,268 @@
+.hero {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12vh;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .col {
+      h1 {
+        width: 60%;
+        font-weight: 500;
+      }
+
+      img {
+        animation: rotate 30s linear infinite;
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+.about {
+  height: max-content;
+  width: 80%;
+  margin: 0;
+  padding: 3rem 10%;
+  background-color: var(--blue);
+  color: var(--white);
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .col {
+      flex-basis: 50%;
+      p {
+        font-size: 1.4rem;
+      }
+      &:last-child {
+        display: flex;
+        flex-direction: column;
+
+        div {
+          text-align: center;
+          .icon {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+          }
+          p {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+.identify {
+  height: max-content;
+  width: 100%;
+  padding: 6rem 0;
+
+  .content {
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.join {
+  height: max-content;
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 1rem 0;
+    &:nth-child(2) {
+      flex-direction: row-reverse;
+    }
+
+    .col {
+      h2 {
+        font-size: 3rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.contact {
+  height: max-content;
+  width: 80%;
+  margin: 3rem 0 3rem 20%;
+  padding: 3rem 10%;
+  background-color: var(--blue);
+  color: var(--white);
+
+  form {
+    width: 60%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input,
+    textarea {
+      width: 100%;
+      margin: 1rem 0;
+      padding: 1rem;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 1rem 0;
+      font-size: 1.7rem;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 1rem 3rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      text-transform: capitalize;
+      background-color: var(--white);
+      width: 100%;
+
+      &:hover {
+        background-color: var(--blue-alt);
+        color: var(--white);
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero {
+    height: max-content;
+    width: 90%;
+    .row {
+      flex-direction: column;
+      margin-top: 4rem;
+
+      .col {
+        h1 {
+          width: 100%;
+        }
+
+        img {
+          width: 320px;
+        }
+      }
+    }
+  }
+
+  .about {
+    width: 100%;
+
+    .row {
+      flex-direction: column;
+    }
+  }
+
+  .identify {
+    .content {
+      width: 90%;
+    }
+  }
+
+  .join {
+    width: 90%;
+    .row {
+      flex-direction: column;
+      &:nth-child(2) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .contact {
+    width: 100%;
+    margin: 0;
+    form {
+      width: 95%;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  
+  .hero {
+    height: max-content;
+    width: 100%;
+    .row {
+      margin-top: 4rem;
+      flex-direction: column;
+      width: 100%;
+      .col {
+        h1 {
+          width: 100%;
+        }
+        img {
+          width: 450px;
+        }
+      }
+    }
+  }
+
+  .about {
+    width: 100%;
+  }
+
+  .identify {
+    .content {
+      width: 90%;
+    }
+  }
+
+  .join {
+    width: 80%;
+    .row {
+      flex-direction: column;
+      &:nth-child(2) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .contact {
+    width: 100%;
+    margin: 0;
+    form {
+      width: 95%;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .hero{
+    height: max-content;
+    width: 90%;
+    .row{
+      .col{
+        img{
+          width: 400px;
+        }
+      }
+    }
+  }
+}

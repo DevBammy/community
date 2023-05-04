@@ -1,0 +1,163 @@
+.hero {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  margin-top: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  &:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: 1;
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h1 {
+    z-index: 2;
+    color: var(--white);
+  }
+}
+
+.lead {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.team {
+  text-align: center;
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 3rem;
+
+    .col {
+      height: 320px;
+      border-radius: 1rem 1rem 0 0;
+      overflow: hidden;
+      background-color: var(--white);
+
+      .img {
+        height: 80%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .text {
+        height: 20%;
+        background-color: var(--blue-alt);
+        color: var(--white);
+        h4 {
+          padding-top: 0.5rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+// events
+.events {
+  height: max-content;
+
+  .event {
+    height: 100%;
+    width: 100%;
+
+    .img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .text {
+      h2 {
+        color: var(--blue);
+        margin: 0.5rem 0;
+      }
+      p {
+        width: 80%;
+        margin-bottom: 0.5rem;
+      }
+      h4 {
+        color: var(--blue-alt);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .lead {
+    width: 90%;
+  }
+
+  .team {
+    .row {
+      flex-direction: column;
+    }
+  }
+
+  .events {
+    .event {
+      .img {
+        height: 250px;
+        width: 250px;
+      }
+      .text {
+        width: 100%;
+        h2,
+        p {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .team {
+    .row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// @media (min-width: 768px) and (max-width: 1024px)
