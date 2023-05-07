@@ -68,10 +68,10 @@ export default function Home() {
         <div className={styles.content}>
           <h2>identify with us</h2>
           <p>
-            By becoming a part of the StarTechOne family, you will  gain access to
-            a supportive network of members who actively collaborate, network,
-            and share knowledge with one another. Identify with our core values
-            and join our community today.
+            By becoming a part of the StarTechOne family, you will gain access
+            to a supportive network of members who actively collaborate,
+            network, and share knowledge with one another. Identify with our
+            core values and join our community today.
           </p>
         </div>
       </section>
@@ -106,7 +106,7 @@ export default function Home() {
               programs, and several more! Attend StarTechOne Community events,
               expand your knowledge, and network with like-minded individuals.
             </p>
-            <Link href="/register" className="btn">
+            <Link href="/events" className="btn">
               attend an event
             </Link>
           </div>
@@ -126,7 +126,7 @@ export default function Home() {
               analysis, AI, and machine learning. Join StarTechOne Community and
               collaborate, network, and learn from one another.
             </p>
-            <Link href="/register" className="btn">
+            <Link href="/events" className="btn">
               attend an event
             </Link>
           </div>
