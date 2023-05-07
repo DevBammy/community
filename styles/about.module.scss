@@ -117,8 +117,81 @@
       }
       h4 {
         color: var(--blue-alt);
-        font-weight: 500;
+        font-weight: bolder;
       }
+    }
+  }
+}
+
+// readMore
+.readMore {
+  height: max-content;
+  margin-top: 15vh;
+
+  .image {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .text {
+    margin: 1rem 0;
+    h3 {
+      margin-bottom: 1rem;
+    }
+
+    .speaker {
+      font-size: 2rem;
+    }
+    p {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .details {
+      font-weight: normal;
+    }
+    .date {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .lead {
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .speakerImg {
+    width: 250px;
+    height: 250px;
+    border-radius: 3rem;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .name {
+    margin: 0.5rem 0;
+    .port {
+      font-size: 1.2rem;
     }
   }
 }
@@ -136,9 +209,15 @@
 
   .events {
     .event {
-      .img {
+      .image {
         height: 250px;
         width: 250px;
+        overflow: hidden;
+
+        .img {
+          object-fit: cover;
+          width: 100%;
+        }
       }
       .text {
         width: 100%;
@@ -146,6 +225,23 @@
         p {
           width: 100%;
         }
+      }
+    }
+  }
+
+  .readMore {
+    margin-top: 5vh;
+
+    .text {
+      text-align: justify;
+      h3 {
+        font-size: 2.4rem;
+      }
+      .speaker {
+        font-size: 1.6rem;
+      }
+      .date, .location {
+      font-size: 1.2rem;
       }
     }
   }
