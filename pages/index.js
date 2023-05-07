@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "@/styles/Home.module.scss";
 import Link from "next/link";
-import Community from "../public/international.svg";
+import Community from "../public/international.png";
 import { FaRegEye } from "react-icons/fa";
 import { FiTarget } from "react-icons/fi";
 import Pix1 from "../public/community.jpg";
