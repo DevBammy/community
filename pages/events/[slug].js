@@ -11,7 +11,7 @@ const Slug = ({ data }) => {
         <div className={styles.image}>
           <picture>
             <img
-              src={urlFor(data.image)}
+              src={data && urlFor(data.image)}
               alt="blog picture"
               className={styles.img}
             />
@@ -37,7 +37,7 @@ const Slug = ({ data }) => {
         <div className={styles.speakerImg}>
           <picture>
             <img
-              src={urlFor(data.image)}
+              src={data && urlFor(data.image)}
               alt="blog picture"
               className={styles.img}
             />
