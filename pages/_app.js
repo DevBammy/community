@@ -9,13 +9,16 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Community StarTechOne</title>
+        <title>
+          StarTechOne Community - Empowering Tech Innovators and Driving
+          Positive Change
+        </title>
         <meta
           name="description"
-          content="Online Community Powered by StarTechOne Nigeria Limited"
+          content=" Join an online community of tech enthusiasts, educators, and professionals who share knowledge and ideas about technology. Attend events, register for programs, and collaborate with like-minded individuals to succeed in the dynamic tech industry."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <main className={inter.className}>
         <Layout>
