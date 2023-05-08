@@ -18,16 +18,16 @@ const Slug = ({ data }) => {
           </picture>
         </div>
         <div className={styles.text}>
-          <h3>{data.title}</h3>
-          <h3 className={styles.speaker}>Speaker: {data.speaker}</h3>
+          <h3>{data && data.title}</h3>
+          <h3 className={styles.speaker}>Speaker: {data && data.speaker}</h3>
           <p className={styles.date}>
             <FaClock className={styles.icon} />
             <span>
-              {data.date} | {data.time}
+              {data && data.date} | {data && data.time}
             </span>
           </p>
-          <p className={styles.location}>Location: {data.location}</p>
-          <p className={styles.details}>{data.body}</p>
+          <p className={styles.location}>Location: {data && data.location}</p>
+          <p className={styles.details}>{data && data.body}</p>
           <Link href="/" className={`btn ${styles.btn}`}>
             Register
           </Link>
@@ -44,7 +44,7 @@ const Slug = ({ data }) => {
           </picture>
         </div>
         <div className={styles.name}>
-          <p>{data.speaker}</p>
+          <p>{data && data.speaker}</p>
           <p className={styles.port}>Data Scientist</p>
         </div>
       </section>

@@ -42,6 +42,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'skills',
+      title: 'Skills',
+      type: 'string',
+    },
+    {
       name: 'time',
       title: 'Time',
       type: 'string',
