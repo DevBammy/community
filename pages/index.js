@@ -1,3 +1,6 @@
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import styles from "@/styles/Home.module.scss";
 import Link from "next/link";
@@ -9,6 +12,32 @@ import Pix2 from "../public/community2.jpg";
 import Pix3 from "../public/community3.jpg";
 
 export default function Home() {
+  const form = useRef();
+  const history = useRouter();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_l2rrnqo",
+        "template_q6vb5yp",
+        form.current,
+        "X3II_cjOhM_qQmE_b"
+      )
+      .then(
+        (result) => {
+          history.push("/");
+          form.current.reset();
+          alert("Message Sent Successfully");
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <>
       <section className={styles.hero}>
@@ -136,7 +165,7 @@ export default function Home() {
       <section className={styles.contact}>
         <h2>contact us</h2>
 
-        <form>
+        <form ref={form} onSubmit={sendEmail}>
           <input type="text" placeholder="full name" />
           <input type="email" placeholder="email" />
           <textarea placeholder="your message"></textarea>
