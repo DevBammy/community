@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
+import { Provider } from "react-redux";
+import store from "@/redux/store";
 import Layout from "./Layout";
 import Head from "next/head";
 
@@ -21,9 +23,11 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main className={inter.className}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Provider store={store}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Provider>
       </main>
     </>
   );
