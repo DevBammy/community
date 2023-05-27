@@ -3,8 +3,46 @@ import React from "react";
 import { FaClock } from "react-icons/fa";
 import styles from "../../styles/about.module.scss";
 import Link from "next/link";
+import { login, logout } from "@/redux/features/userSlice";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { auth } from "@/firebase/config";
+
 
 const Slug = ({ data }) => {
+  const dispatch = useDispatch();
+  const [online, setOnline] = useState(false);
+  const [userName, setUserName] = useState("");
+ 
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        if (user.displayName == null) {
+          const u1 = user.email.substring(0, user.email.indexOf("@"));
+          const uName = u1.charAt(0).toLowerCase() + u1.slice(1);
+          setUserName(uName);
+        } else {
+          setUserName(user.displayName);
+        }
+        dispatch(
+          login({
+            email: user.email,
+            uid: user.uid,
+            displayName: user.displayName ? user.displayName : userName,
+          })
+        );
+        setOnline(true);
+      } else {
+        dispatch(logout());
+        setUserName("");
+        setOnline(false);
+      }
+    });
+  }, [dispatch, userName]);
+
   return (
     <>
       <section className={styles.readMore}>
@@ -28,7 +66,10 @@ const Slug = ({ data }) => {
           </p>
           <p className={styles.location}>Location: {data && data.location}</p>
           <p className={styles.details}>{data && data.body}</p>
-          <Link href="/" className={`btn ${styles.btn}`}>
+          <Link
+            href={online ? "https://forms.gle/KX3XoyeFUoaeTzbz9" : "/login"}
+            className={`btn ${styles.btn}`} target="_blank"
+          >
             Register
           </Link>
         </div>
