@@ -22,7 +22,11 @@ const About = () => {
           and machine learning. Join StarTechOne Community and collaborate,
           network, and learn from one another.
         </p>
-        <Link href="/" className="btn">
+        <Link
+          href="https://startechone.com.ng/"
+          target="_blank"
+          className="btn"
+        >
           Know us
         </Link>
       </section>
@@ -39,15 +43,6 @@ const About = () => {
             <div className={styles.text}>
               <h4>Gabriel Yashim</h4>
               <p>Community Lead</p>
-            </div>
-          </div>
-          <div className={styles.col}>
-            <div className={styles.img}>
-              <Image src={Jones} alt="jones" width={300} />
-            </div>
-            <div className={styles.text}>
-              <h4>Jones-ere Alaere</h4>
-              <p>Community Manager</p>
             </div>
           </div>
           <div className={styles.col}>

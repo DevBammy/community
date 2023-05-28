@@ -44,10 +44,17 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+
+  p {
+    text-align: center;
+  }
 }
 
 .team {
-  text-align: center;
+  p,
+  h3 {
+    text-align: center;
+  }
 
   .row {
     display: flex;
@@ -61,6 +68,7 @@
       border-radius: 1rem 1rem 0 0;
       overflow: hidden;
       background-color: var(--white);
+      text-align: center;
 
       .img {
         height: 80%;
@@ -77,9 +85,10 @@
         color: var(--white);
         h4 {
           padding-top: 0.5rem;
+          font-size: 1.7rem;
         }
         p {
-          font-size: 1.4rem;
+          font-size: 1.2rem;
         }
       }
     }
@@ -240,8 +249,9 @@
       .speaker {
         font-size: 1.6rem;
       }
-      .date, .location {
-      font-size: 1.2rem;
+      .date,
+      .location {
+        font-size: 1.2rem;
       }
     }
   }

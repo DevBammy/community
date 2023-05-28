@@ -11,9 +11,19 @@ import Pix1 from "../public/community.jpg";
 import Pix2 from "../public/community2.jpg";
 import Pix3 from "../public/community3.jpg";
 
+import { useState, useEffect } from "react";
+import { auth } from "@/firebase/config";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { login, logout } from "@/redux/features/userSlice";
+import { useDispatch } from "react-redux";
+
 export default function Home() {
   const form = useRef();
   const history = useRouter();
+  const [showMenu, setShowMenu] = useState(false);
+  const dispatch = useDispatch();
+  const [userName, setUserName] = useState("");
+  const [online, setOnline] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -38,6 +48,34 @@ export default function Home() {
       );
   };
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        if (user.displayName == null) {
+          const u1 = user.email.substring(0, user.email.indexOf("@"));
+          const uName = u1.charAt(0).toLowerCase() + u1.slice(1);
+          setUserName(uName);
+        } else {
+          setUserName(user.displayName);
+        }
+        dispatch(
+          login({
+            email: user.email,
+            uid: user.uid,
+            displayName: user.displayName ? user.displayName : userName,
+          })
+        );
+        setOnline(true);
+        router.push("/");
+      } else {
+        dispatch(logout());
+        setUserName("");
+        setOnline(false);
+      }
+    });
+  }, [dispatch, userName]);
+
   return (
     <>
       <section className={styles.hero}>
@@ -48,7 +86,7 @@ export default function Home() {
               ...Empowering Tech Innovators{" "}
               <span>and Driving Positive Change</span>
             </p>
-            <Link href="/register" className="btn">
+            <Link href={online ? "/event" : "/login"} className="btn">
               Join Us
             </Link>
           </div>
@@ -118,7 +156,7 @@ export default function Home() {
               technology. Our programs are tailored to fit your needs, register
               today!
             </p>
-            <Link href="/register" className="btn">
+            <Link href={online ? "/event" : "/login"} className="btn">
               Join Now
             </Link>
           </div>
@@ -135,7 +173,7 @@ export default function Home() {
               programs, and several more! Attend StarTechOne Community events,
               expand your knowledge, and network with like-minded individuals.
             </p>
-            <Link href="/events" className="btn">
+            <Link href={online ? "/event" : "/login"} className="btn">
               attend an event
             </Link>
           </div>
@@ -155,7 +193,7 @@ export default function Home() {
               analysis, AI, and machine learning. Join StarTechOne Community and
               collaborate, network, and learn from one another.
             </p>
-            <Link href="/events" className="btn">
+            <Link href={online ? "/event" : "/login"} className="btn">
               attend an event
             </Link>
           </div>
