@@ -3,8 +3,24 @@ import Link from "next/link";
 import Image from "next/image";
 import BG from "../../public/community.jpg";
 import { client, urlFor } from "../../lib/client";
+import { useState, useEffect } from "react";
+import { auth } from "@/firebase/config";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
-const events = ({ data }) => {
+
+const Events = ({ data }) => {
+  const [online, setOnline] = useState(false);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        setOnline(true);
+      } else {
+        setOnline(false);
+      }
+    });
+  }, []);
+
   return (
     <>
       <div className={styles.hero}>
@@ -19,9 +35,6 @@ const events = ({ data }) => {
           knowledge, network with like-minded individuals, and collaborate with
           other tech enthusiasts.
         </p>
-        <Link href="/" className="btn">
-          Join Us
-        </Link>
       </section>
 
       <section className={styles.events}>
@@ -40,7 +53,10 @@ const events = ({ data }) => {
               <h2>{data.title}</h2>
               <p>{data.body}</p>
               <h4>Event date: {data.date}</h4>
-              <Link href={`/events/${data.slug.current}`} className="btn">
+              <Link
+                href={online ? `/events/${data.slug.current}` : "/login"}
+                className="btn"
+              >
                 More Details
               </Link>
             </div>
@@ -62,4 +78,4 @@ export const getServerSideProps = async () => {
   };
 };
 
-export default events;
+export default Events;

@@ -14,7 +14,7 @@ const Login = () => {
   const googleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        router.push("/");
+        router.push("/events");
         dispatch(
           signin({
             email: userCredential.user.email,

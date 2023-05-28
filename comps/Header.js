@@ -41,7 +41,6 @@ const Header = () => {
           })
         );
         setOnline(true);
-        router.push("/");
       } else {
         dispatch(logout());
         setUserName("");
@@ -73,7 +72,7 @@ const Header = () => {
         <nav className={styles.nav}>
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
-          <Link href={online ? "/event" : "/login"}>Events</Link>
+          <Link href={online ? "/events" : "/login"}>Events</Link>
           <p className={online ? `${styles.name}` : `${styles.off}`}>
             {userName ? `hi, ${userName}` : ""}
           </p>
