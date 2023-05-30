@@ -53,7 +53,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className={styles.col}>
-            <h3>coonect with us</h3>
+            <h3>connect with us</h3>
             <div className={styles.socials}>
               <Link href="https://web.facebook.com/startechone" target="_blank">
                 <FaFacebookSquare className={styles.icon} />
